@@ -488,7 +488,7 @@ final class LaravelHttpServer implements HttpServer
         $files = [];
 
         foreach (explode("--{$boundary}", $body) as $part) {
-            $part = mb_ltrim($part, "\r\n");
+            $part = ltrim($part, "\r\n");
             if ($part === '' || str_starts_with($part, '--')) {
                 continue;
             }
