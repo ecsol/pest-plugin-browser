@@ -68,7 +68,7 @@ it('hands the application a binary file byte for byte', function (): void {
     visit('/')
         ->attach('#avatar', $tempFile)
         ->click('Upload')
-        ->assertSee(sprintf('received %d bytes, sha256 %s', strlen($bytes), hash('sha256', $bytes)));
+        ->assertSee(sprintf('received %d bytes, sha256 %s', filesize($tempFile), hash('sha256', $bytes)));
 
     unlink($tempFile);
 });
